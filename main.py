@@ -15,11 +15,11 @@ for website_info_index, website_info_row in website_info_data.iterrows():
         total_ms = str(int(website_info_row_url_result.elapsed.total_seconds()*1000))
         # 响应码为2开头,标注绿色,否则标注红色
         if website_info_row_url_result.status_code:
-            website_info_row['Name'] = "<span>" + website_info_row['Name'] + (" 🟢 "+ total_ms + "ms" if str(website_info_row_url_result.status_code).startswith("2") else "🔴")  + "</span><br/>"
+            website_info_row['Name'] = "<span style='font-weight: 600'>" + website_info_row['Name'] + "</span>" + "<span>" + (" 🟢 "+ total_ms + "ms" if str(website_info_row_url_result.status_code).startswith("2") else "🔴")  + "</span><br/>"
     # 无法响应，标注红色
     except Exception as e:
         print('error==', e)
-        website_info_row['Name'] = "<span>" + website_info_row['Name'] + "🔴" +"</span><br/>"
+        website_info_row['Name'] = "<span style='font-weight: 600'>" + website_info_row['Name'] + "🔴" +"</span><br/>"
     finally:
         website_info_row['Name'] = "<span>" + website_info_row['Name'] + "</span>" + "<a href='" + website_info_row['Url'] + "'>" + (website_info_row['Url'] if len(website_info_row['Url']) < 30 else website_info_row['Url'][0:30] + "..." ) + "</a>"
         print("finish", website_info_row['Url'], website_info_row['Name'])
