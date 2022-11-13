@@ -12,11 +12,15 @@
 
 作为一个互联网从业者，不仅要做好手头的产品，也要时刻关注市面**已有的**产品和**刚诞生**的产品，**存在的产品是我们灵感的来源**。
 
-INS项目的灵感来自 [**阮一峰的网络日志 之 科技爱好者周刊**](https://www.ruanyifeng.com/blog/weekly/)，周刊每期都会带一些有趣的项目和网站，我打算为这些能提供创作灵感的项目做一个导航列表，为以后的创作提供灵感。
+INS项目的灵感来自 [**阮一峰的网络日志 之 科技爱好者周刊**](https://www.ruanyifeng.com/blog/weekly/)，周刊每期都会带一些给读者带来灵感的项目，但没有给出方便查阅的项目导航列表，以及活跃项目持续追踪功能，于是本INS项目诞生了。
 
 ## INS项目运作机制
 
-zhaoolee往项目根目录的 [website_info.csv](https://github.com/zhaoolee/ins/blob/main/website_info.csv) 添加数据源, 数据源被提交到Github 后, Github Action 将运行Python脚本爬虫, 实时检测Url状态, 如果收到响应, 则Name后追加一个绿灯🟢, 否则为红灯🔴, Github Action 每天早晨6点运行, 检测Url的状态, 绿灯后面会显示响应的毫秒数, 值越小, 说明网站响应速度越快, 资金充足; 响应速度慢的大多是公益项目，如果你很喜欢某个公益项目，建议去赞助一波，否则某天公益项目有可能会直接变红。
+zhaoolee往项目根目录的 [website_info.csv](https://github.com/zhaoolee/ins/blob/main/website_info.csv) 添加数据源, 数据源被提交到Github 后, Github Action 将运行爬虫, 实时检测Url状态, 如果收到响应, 则Name后追加一个绿灯🟢, 否则为红灯🔴
+
+Github Action每天6点定时运行, 检测Url的状态, 绿灯后面会显示响应的毫秒数, 值越小, 说明网站响应速度越快, 资金充足; 
+
+响应速度慢的大多是公益项目，如果你很喜欢某个公益项目，建议去赞助一波，否则某天公益项目有可能会直接变红。
 
 ## INS项目的墓碑复活机制
 
