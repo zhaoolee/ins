@@ -10,6 +10,7 @@ build = "python main.py"
 pandas = "*"
 tabulate = "*"
 pytz = "*"
+requests = "*"
 
 [dev-packages]
 
