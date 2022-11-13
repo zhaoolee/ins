@@ -27,7 +27,7 @@ website_info_data = website_info_data.drop(columns=['Url'])
 
 website_info_html = "<table>"
 
-website_info_html = website_info_html + "<tr>" + "<td width='400'>" + "<span>╰(°▽°)╯</span><br/><span>Name</span>" + "</td>"  + "<td>" + "<span> (●ﾟωﾟ●)</span><br/><span>Description</span>"  + "</td>"  + "<td width='300'>" + "<span> ︿(￣︶￣)︿</span><br/><span>Tag</span>"  + "</td>"  +"</tr>"
+website_info_html = website_info_html + "<tr>" + "<td width='400'>" + "<span>(づ｡◕‿‿◕｡)づ</span><br/><span>Name</span>" + "</td>"  + "<td>" + "<span> (●ﾟωﾟ●)</span><br/><span>Description</span>"  + "</td>"  + "<td width='300'>" + "<span> ︿(￣︶￣)︿</span><br/><span>Tag</span>"  + "</td>"  +"</tr>"
 
 for website_info_index, website_info_row in website_info_data.iterrows():
     website_info_html = website_info_html + "<tr>" + "<td>" + website_info_row['Name'] + "</td>"  + "<td>" + website_info_row['Description'] + "</td>"  + "<td>" + website_info_row['Tag'] + "</td>"  +"</tr>"
