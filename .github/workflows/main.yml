@@ -1,0 +1,36 @@
+name: zhaoolee
+on:
+  schedule:
+    - cron:  '0 22 * * *'    # 国际标准时间22点（北京时间早上6点发） 
+  push:
+    branches:    
+      - main
+jobs:
+  push:
+      runs-on: ${{ matrix.operating-system }}
+      strategy:
+        matrix:
+          # in this example, there is a newer version already installed, 3.7.7, so the older version will be downloaded
+          operating-system: ['ubuntu-20.04']
+      steps:
+      - uses: actions/checkout@v3 # Checking out the repo
+      - name: Run with setup-python 3.9
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          update-environment: false
+          cache: 'pipenv'
+      - name: Install pipenv
+        run: pip3 install --user pipenv
+      - name: Install dependecies
+        run:  pipenv --python python3 && pipenv install
+      - name: Build
+        run: pipenv run build
+      - name: Commit and push if changed   # 更新README.md
+        run: |
+          git diff
+          git config --global user.email "zhaoolee@gmail.com"
+          git config --global user.name "zhaoolee"
+          git add README.md
+          git commit -m "Github Action auto Updated"
+          git push
