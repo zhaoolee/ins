@@ -12,9 +12,10 @@ for website_info_index, website_info_row in website_info_data.iterrows():
     print('=start=>>', website_info_index, website_info_row['Url'])
     try:
         website_info_row_url_result = requests.get(website_info_row['Url'], timeout=5)
+        total_ms = str(int(website_info_row_url_result.elapsed.total_seconds()*1000))
         # 响应码为2开头,标注绿色,否则标注红色
         if website_info_row_url_result.status_code:
-            website_info_row['Name'] = website_info_row['Name'] + ("🟢" if str(website_info_row_url_result.status_code).startswith("2") else "🔴")
+            website_info_row['Name'] = website_info_row['Name'] + (" 🟢"+ total_ms + "ms" if str(website_info_row_url_result.status_code).startswith("2") else "🔴")
     # 无法响应，标注红色
     except Exception as e:
         print('error==', e)
