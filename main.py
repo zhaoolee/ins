@@ -21,7 +21,9 @@ for website_info_index, website_info_row in website_info_data.iterrows():
         print('error==', e)
         website_info_row['Name'] = website_info_row['Name'] + "🔴"
     finally:
+        website_info_row['Name'] = "[" + website_info_row['Name'] + "]" + "(" + website_info_row['Url'] + ")"
         print("finish", website_info_row['Url'], website_info_row['Name'])
+website_info_data = website_info_data.drop(columns=['Url'])
 website_info_md = website_info_data.to_markdown(index=False)
 print(website_info_md)
 readme_md = ""
