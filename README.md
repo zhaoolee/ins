@@ -1,6 +1,6 @@
 # INS
 
-🍭 为互联网从业者提供灵感的开源数据库
+🍭 🍭 🍭互联网从业者灵感的数据库
 
 ![INS灵感](https://raw.githubusercontent.com/zhaoolee/ins/master/media/ins.png)
 
