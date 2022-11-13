@@ -25,9 +25,9 @@ for website_info_index, website_info_row in website_info_data.iterrows():
 website_info_md = website_info_data.to_markdown(index=False)
 print(website_info_md)
 readme_md = ""
-with open(os.path.join(os.getcwd(),"README.md"),'r') as load_f:
+with open(os.path.join(os.getcwd(),"EditREADME.md"),'r') as load_f:
     readme_md = load_f.read();
-mail_re = r'--insStart--([.\S\s]*)--insEnd--'
+mail_re = r'--insStart----insEnd--'
 reResult = re.findall(mail_re, readme_md)
 
 in_datetime = datetime.fromtimestamp(int(time.time()),pytz.timezone('Asia/Shanghai')).strftime('%Y-%m-%d %H:%M:%S')

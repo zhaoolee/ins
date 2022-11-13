@@ -26,29 +26,30 @@ zhaoolee往项目根目录的 [website_info.csv](https://github.com/zhaoolee/ins
 
 纯净核心数据全量下载: [website_info.csv数据格式纯净, 支持一键下载](https://raw.githubusercontent.com/zhaoolee/ins/main/website_info.csv)
 
---insStart--
 
-## 开源灵感库更新时间(2022-11-13 19:02:52)
+
+## 开源灵感库更新时间(2022-11-13 20:17:33)
 
 | Url                                           | Name                    |  Description                                                                                                    |  Tag         |
 |:----------------------------------------------|:------------------------|:----------------------------------------------------------------------------------------------------------------|:-------------|
-| https://izihun.com/                           | 字魂网 🟢976ms              | 字体下载_免费字体下载_商用字体设计定制--字魂网                                                                                       | 字体研究社;       |
-| https://www.qiuziti.com/                      | 求字体网 🟢320ms             | 字体下载-求字体网提供中文和英文字体库下载、识别与预览服务,找字体的好帮手                                                                           | 字体研究社;       |
-| https://www.fontsquirrel.com/                 | 松鼠字体 🟢2425ms            | 松鼠字体（Font Squirrel）搜寻互联网上高质量的合法免费字体。下载数千种完全合法，高质量的免费字体。                                                         | 字体研究社;       |
-| https://www.hellofont.cn/                     | 字由 🟢343ms               | 字由是为设计师量身定做的一款字体下载管理工具。这里收集了国内外上千款精选字体，不仅让你轻松、自由和高效的使用字体，还为你展示了每款字体的详细信息和精选的字体文章。字由将成为你设计中的好帮手，让你领略字体在设计中的更多精彩。 | 字体研究社;       |
-| https://www.fontfabric.com/                   | fontfabric 🟢2513ms      | 一个数字型铸造厂，为各种品牌制作零售字体和自定义字体。分享对高级字体，书法和刻字的热情。                                                                    | 字体研究社;       |
-| https://www.100font.com/                      | 100Font 🟢513ms          | 一个专门收集「免费商用字体」的网站                                                                                               | 字体研究社;       |
-| https://colorhunt.co/                         | 色彩猎人 🟢1626ms            | 提供现成的优质配色示例                                                                                                     | 色彩实验室;       |
-| https://www.iloveimg.com/zh-cn/compress-image | 在线压缩图片 🟢2422ms          | 压缩 JPG, PNG 或 GIF时保持最佳文件质量和压缩程度。一次缩小多个图片文件的尺寸。                                                                  | 图片处理;好人一生平安; |
+| https://izihun.com/                           | 字魂网 🟢504ms              | 字体下载_免费字体下载_商用字体设计定制--字魂网                                                                                       | 字体研究社;       |
+| https://www.qiuziti.com/                      | 求字体网 🟢236ms             | 字体下载-求字体网提供中文和英文字体库下载、识别与预览服务,找字体的好帮手                                                                           | 字体研究社;       |
+| https://www.fontsquirrel.com/                 | 松鼠字体 🟢2569ms            | 松鼠字体（Font Squirrel）搜寻互联网上高质量的合法免费字体。下载数千种完全合法，高质量的免费字体。                                                         | 字体研究社;       |
+| https://www.hellofont.cn/                     | 字由 🟢377ms               | 字由是为设计师量身定做的一款字体下载管理工具。这里收集了国内外上千款精选字体，不仅让你轻松、自由和高效的使用字体，还为你展示了每款字体的详细信息和精选的字体文章。字由将成为你设计中的好帮手，让你领略字体在设计中的更多精彩。 | 字体研究社;       |
+| https://www.fontfabric.com/                   | fontfabric 🟢2548ms      | 一个数字型铸造厂，为各种品牌制作零售字体和自定义字体。分享对高级字体，书法和刻字的热情。                                                                    | 字体研究社;       |
+| https://www.100font.com/                      | 100Font 🟢552ms          | 一个专门收集「免费商用字体」的网站                                                                                               | 字体研究社;       |
+| https://colorhunt.co/                         | 色彩猎人 🟢1536ms            | 提供现成的优质配色示例                                                                                                     | 色彩实验室;       |
+| https://www.iloveimg.com/zh-cn/compress-image | 在线压缩图片 🟢1687ms          | 压缩 JPG, PNG 或 GIF时保持最佳文件质量和压缩程度。一次缩小多个图片文件的尺寸。                                                                  | 图片处理;好人一生平安; |
 | https://masuit.com/                           | 懒得勤快🔴                   | 拥有马克丁封禁全家桶，懒得勤快，互联网分享精神，勤于发现，乐于分享                                                                               | 资源集市;好人一生平安; |
-| https://v0v.bid/                              | Windows系统一句命令激活 🟢2564ms | 一门古老的激活艺术                                                                                                       | 资源集市;好人一生平安; |
-| http://tool.liumingye.cn/douyin/              | 抖音短视频无水印解析下载 🟢215ms     | 通过抖音视频分享链接下载抖音原片~                                                                                               | 资源集市;好人一生平安; |
-| https://neal.fun/ambient-chaos/               | 白噪音在线生成 🟢1298ms         | 咖啡厅、雨天、火堆等白噪音合成器, 让你在工作时更专注，睡觉时更安心,                                                                             | 在线工具;        |
+| https://v0v.bid/                              | Windows系统一句命令激活 🟢2219ms | 一门古老的激活艺术                                                                                                       | 资源集市;好人一生平安; |
+| http://tool.liumingye.cn/douyin/              | 抖音短视频无水印解析下载 🟢294ms     | 通过抖音视频分享链接下载抖音原片~                                                                                               | 资源集市;好人一生平安; |
+| https://neal.fun/ambient-chaos/               | 白噪音在线生成 🟢1571ms         | 咖啡厅、雨天、火堆等白噪音合成器, 让你在工作时更专注，睡觉时更安心,                                                                             | 在线工具;        |
 | http://cp.anyknew.com/                        | 拷贝兔🔴                    | 通过４个字符将文件共享到另一台电脑                                                                                               | 在线工具;        |
-| https://cn.piliapp.com/counter/               | 计数器 🟢1901ms             | 简洁好用的计数器,支持键盘按键,各种尺寸屏幕完美适配                                                                                      | 在线工具;        |
-| https://www.photopea.com/                     | Photoshop在线免费版 🟢1634ms  | 比PhotoShop原版更强大的在线工具                                                                                            | 在线工具;        |
+| https://cn.piliapp.com/counter/               | 计数器 🟢1364ms             | 简洁好用的计数器,支持键盘按键,各种尺寸屏幕完美适配                                                                                      | 在线工具;        |
+| https://www.photopea.com/                     | Photoshop在线免费版 🟢3162ms  | 比PhotoShop原版更强大的在线工具                                                                                            | 在线工具;        |
+| https://www.bilibili.com/h5/good-history      | B站入站必刷榜单 🟢881ms         | B站成立以来最具有代表性的作品合集                                                                                               | 优秀作品;        |
 
---insEnd--
+
 
 
 
