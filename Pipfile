@@ -3,9 +3,14 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 name = "pypi"
 
+[scripts]
+build = "python main.py"
+
 [packages]
 pandas = "*"
 tabulate = "*"
+pytz = "*"
+
 [dev-packages]
 
 [requires]
