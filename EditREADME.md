@@ -29,7 +29,6 @@ zhaoolee往项目根目录的 [website_info.csv](https://github.com/zhaoolee/ins
 --insStart----insEnd--
 
 
-
 ## 欢迎贡献
 
-如果你有**饱含灵气网站**推荐, 也可以在[issues](https://github.com/zhaoolee/ins/issues) 中留言
+如果你有**饱含灵气的项目**, 也可以在[issues](https://github.com/zhaoolee/ins/issues) 中留言
