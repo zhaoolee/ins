@@ -45,5 +45,6 @@ Github Action每天6点定时运行, 检测Url的状态, 绿灯后面会显示�
 ## 欢迎贡献╰(￣▽￣)╭
 
 如果你有**饱含灵感的想法**, 也可以在[issues](https://github.com/zhaoolee/ins/issues) 中留言
+## 联系作者 (＾－＾)V
 
-联系作者 zhaoolee@gmail.com
+<a href="mailto:zhaoolee@gmail.com">zhaoolee@gmail.com</a>
