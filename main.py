@@ -38,8 +38,7 @@ with open(os.path.join(os.getcwd(),"EditREADME.md"),'r') as load_f:
 mail_re = r'--insStart----insEnd--'
 reResult = re.findall(mail_re, readme_md)
 in_datetime = datetime.fromtimestamp(int(time.time()),pytz.timezone('Asia/Shanghai')).strftime('%Y-%m-%d %H:%M:%S')
-# new_read_me = readme_md.replace(reResult[0], "\n\n" + "## 开源灵感库已收录" + str(len(website_info_data)) + "个灵感!" + "更新时间("+ in_datetime + ")\n\n" + website_info_md + "\n\n")
-new_read_me = readme_md.replace(reResult[0], "\n\n" + "## 开源灵感库已收录" + str(len(website_info_data)) + "个灵感!" + "(～￣▽￣)～更新时间("+ in_datetime + ")\n\n" + website_info_html + "\n\n")
+new_read_me = readme_md.replace(reResult[0], "\n\n" + "## 开源灵感库已收录" + str(len(website_info_data)) + "束灵感INS!" + "(～￣▽￣)～更新时间("+ in_datetime + ")\n\n" + website_info_html + "\n\n")
 print('new_read_me',new_read_me)
 with open(os.path.join(os.getcwd(),"README.md"),'w') as load_f:
     load_f.write(new_read_me)
