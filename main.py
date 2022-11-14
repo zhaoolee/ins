@@ -7,7 +7,12 @@ import pytz
 import requests
 
 website_info_data = pd.read_csv('./website_info.csv')
+website_info_data = website_info_data.reindex(index=website_info_data.index[::-1])
 print(website_info_data)
+
+
+
+
 for website_info_index, website_info_row in website_info_data.iterrows():
     print('=start=>>', website_info_index, website_info_row['Url'])
     try:
