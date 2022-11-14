@@ -38,7 +38,15 @@ Github Action每天6点定时运行, 检测Url的状态, 绿灯后面会显示�
 
 ## 下载(⊙ˍ⊙)
 
-纯净核心数据全量下载: [website_info.csv数据格式纯净, 支持一键下载](https://raw.githubusercontent.com/zhaoolee/ins/main/website_info.csv)
+纯净核心csv数据全量下载: [https://raw.githubusercontent.com/zhaoolee/ins/main/website_info.csv](https://raw.githubusercontent.com/zhaoolee/ins/main/website_info.csv)
+
+在线CDN版本: [https://cdn.jsdelivr.net/gh/zhaoolee/ins/website_info.csv](https://cdn.jsdelivr.net/gh/zhaoolee/ins/website_info.csv)
+
+如果你想复刻本项目, 建设**灵感之外**的主题仓库, 欢迎直接克隆本项目进行魔改 
+
+```shell
+git clone --depth=1 https://github.com/zhaoolee/ins
+```
 
 --insStart----insEnd--
 
