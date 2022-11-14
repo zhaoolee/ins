@@ -11,7 +11,7 @@
 
 - **灵感**是文艺、科技活动中瞬间产生的富有创造性的突发思维状态，无意识中突然兴起的神妙能力（某度er）
 - **灵感**是根据自己的经历而联想到的一种创造性思维活动 (维基儿)
-- **灵感**是发现新世界（省流儿）
+- **灵感**是**发现新世界**（省流儿）
 
 ![kokomi_teruhashi](https://raw.githubusercontent.com/zhaoolee/ins/master/media/kokomi_teruhashi.png)
 
