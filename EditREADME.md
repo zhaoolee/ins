@@ -52,7 +52,10 @@ git clone --depth=1 https://github.com/zhaoolee/ins
 
 ## 欢迎贡献╰(￣▽￣)╭
 
-如果你有**饱含灵感的想法**, 也可以在[issues](https://github.com/zhaoolee/ins/issues) 中留言
+贡献方法: Fork本项目, 在项目根目录的 website_info.csv 添加数据, 提交Pr即可!
+
 ## 联系作者 (＾－＾)V
 
 <a href="mailto:zhaoolee@gmail.com">zhaoolee@gmail.com</a>
+
+如果你有**饱含灵感的想法**, 也可以在[issues](https://github.com/zhaoolee/ins/issues) 中留言
