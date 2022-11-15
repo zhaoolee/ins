@@ -9,7 +9,8 @@ import requests
 
 def get_all_tag(website_info_data):
     all_tag = []
-    # 遍历数据
+    all_tag_info_data = []
+    # 遍历数据,获取所有的tag
     for website_info_index, website_info_row in website_info_data.iterrows():
         tag_list = website_info_row['Tag'].split(";")
         pure_tag_list = []
@@ -19,17 +20,28 @@ def get_all_tag(website_info_data):
                 pure_tag_list.append(pure_tag)
                 if(pure_tag not in all_tag):
                     all_tag.append(pure_tag)
+                    all_tag_info_data.append([])
         print('pure_tag_list',pure_tag_list)
         print('tag==>>', website_info_index,website_info_row['Tag'], 'pure_tag_list==>>',pure_tag_list)
+    
 
-    print('all_tag',all_tag)
-    return all_tag
+    # 遍历所有数据,将数据放到all_tag_info_data 中
+    for website_info_index, website_info_row in website_info_data.iterrows():
+        tag_list = website_info_row['Tag'].split(";")
+        for tag in tag_list:
+            pure_tag = tag.strip()
+            if pure_tag != "":
+                all_tag_info_data[all_tag.index(pure_tag)].append(website_info_row)
+
+    print('all_tag',all_tag, 'all_tag_info_data', all_tag_info_data)
+    return { 'all_tag': all_tag, 'all_tag_info_data': all_tag_info_data }
 
 def short_url(url):
     result = ""
     url = url.lstrip("http://")
     url = url.lstrip("https://")
     url = url.lstrip("www.")
+    url = url.rstrip("/")
 
     if len(url) > 30:
         result = url[0:30] + "..." 
@@ -43,6 +55,22 @@ def replaceTemplate(template, reInfo, data):
     new_read_me = template.replace(reResult[0], data)
     return new_read_me
 
+def create_tag_table_html(tag_name, tag_info_data):
+    print('==create_tag_table_html', tag_name)
+    website_info_html = "<table>"
+    website_info_html = website_info_html + "<tr>" + "<td width='400'>" + "<span>(づ｡◕‿‿◕｡)づ</span><br/><span>Name</span>" + "</td>"  + "<td>" + "<span> (●ﾟωﾟ●)</span><br/><span>Description</span>"  + "</td>"    +"</tr>"
+    for info_data in tag_info_data:
+        print('==>>', {
+            "Name": info_data['Name'], 
+            "Url": info_data['Url'], 
+            "Description": info_data['Description']
+        })
+        website_info_html = website_info_html + "<tr>" + "<td>" + info_data['Name'] + "</td>"  + "<td>" + info_data['Description'] + "</td>"   +"</tr>"
+    
+    website_info_html = website_info_html + "</table>"
+
+    return website_info_html
+
 
 def main():
     # 读取csv文件
@@ -50,7 +78,6 @@ def main():
     # 反转数据,保证最新的数据在最前面
     website_info_data = website_info_data.reindex(index=website_info_data.index[::-1])
     print(website_info_data)
-    
     # 遍历数据
     for website_info_index, website_info_row in website_info_data.iterrows():
         print('=start=>>', website_info_index, website_info_row['Url'])
@@ -69,8 +96,6 @@ def main():
         finally:
             website_info_row['Name'] = "<span>" + website_info_row['Name'] + "</span>" + "<a href='" + website_info_row['Url'] + "'>" + (short_url(website_info_row['Url'])) + "</a>"
             print("finish", website_info_row['Url'], website_info_row['Name'])
-    # 删除多余的列
-    website_info_data = website_info_data.drop(columns=['Url'])
     # 完成table数据拼接
     website_info_html = "<table>"
     website_info_html = website_info_html + "<tr>" + "<td width='400'>" + "<span>(づ｡◕‿‿◕｡)づ</span><br/><span>Name</span>" + "</td>"  + "<td>" + "<span> (●ﾟωﾟ●)</span><br/><span>Description</span>"  + "</td>"  + "<td width='300'>" + "<span> ︿(￣︶￣)︿</span><br/><span>Tag</span>"  + "</td>"  +"</tr>"
@@ -87,12 +112,35 @@ def main():
     new_read_me = replaceTemplate(readme_md, mail_re, all_info_content)
     print('new_read_me',new_read_me)
 
-    # tag_re = r'--tagStart----tagEnd--'
-    # all_tag_content_list = get_all_tag(website_info_data)
-    # all_tag_content = ""
-    # for tag_content in all_tag_content_list:
-    #     all_tag_content = all_tag_content + tag_content + ", "
-    # new_read_me = replaceTemplate(new_read_me, tag_re, all_tag_content)
+    # 生成类别数据
+    tag_re = r'--tagStart----tagEnd--'
+    all_tag_result = get_all_tag(website_info_data)
+    all_tag = all_tag_result["all_tag"]
+    all_tag_info_data = all_tag_result["all_tag_info_data"]
+    print('==all_tag_info_data==', all_tag_info_data)
+    print("==all_tag==", all_tag)
+    all_tag_content = ""
+
+    for tag_content in all_tag:
+        tag_html = create_tag_table_html(tag_content, all_tag_info_data[all_tag.index(tag_content)])
+        tag_whole_content = "## "+ tag_content + "\n\n" + tag_html + "\n\n"
+        all_tag_content = all_tag_content + tag_whole_content
+
+    new_read_me = replaceTemplate(new_read_me, tag_re, all_tag_content)
+
+    # 添加索引锚点
+    tag_index_info = ""
+    for tag_index,tag_content in enumerate(all_tag):
+        if tag_index != (len(all_tag) - 1):
+            tag_index_info = tag_index_info + "<a href='#" + tag_content + "'>" + tag_content + "</a>" + ", "
+        else:
+            tag_index_info = tag_index_info +  "<a href='#" + tag_content + "'>" + tag_content + "</a>"
+    
+    tag_index_re = r'--tagIndexInfoStart----tagIndexInfoEnd--'
+
+    new_read_me = replaceTemplate(new_read_me, tag_index_re, tag_index_info)
+
+
     # 将生成的数据写入README.md
     with open(os.path.join(os.getcwd(),"README.md"),'w') as load_f:
         load_f.write(new_read_me)
