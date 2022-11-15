@@ -237,7 +237,7 @@ def main():
                 + "<a href='#"
                 + tag_content
                 + "'>"
-                + tag_content + "(" + str(len(all_tag_info_data[all_tag.index(tag_content)])) + "个)"
+                + tag_content + "(" + str(len(all_tag_info_data[all_tag.index(tag_content)])) + ")"
                 + "</a>"
                 + ", "
             )
@@ -247,7 +247,7 @@ def main():
                 + "<a href='#"
                 + tag_content
                 + "'>"
-                + tag_content + "(" + str(len(all_tag_info_data[all_tag.index(tag_content)])) + "个)"
+                + tag_content + "(" + str(len(all_tag_info_data[all_tag.index(tag_content)])) + ")"
                 + "</a>"
             )
 
