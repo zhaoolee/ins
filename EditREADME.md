@@ -47,7 +47,7 @@ Github Action每天6点定时运行, 检测Url的状态, 绿灯后面会显示�
 ```shell
 git clone --depth=1 https://github.com/zhaoolee/ins
 ```
-## 索引
+## 索引(点击超链接直达)
 
 --tagIndexInfoStart----tagIndexInfoEnd--
 
