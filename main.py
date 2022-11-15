@@ -65,7 +65,7 @@ def replaceTemplate(template, reInfo, data):
 
 def create_tag_table_html(tag_name, tag_info_data):
     print("==create_tag_table_html", tag_name)
-    website_info_html = "<table>"
+    website_info_html = "<br/>" + "<a href='#目录'>🔙返回目录</a>" + "<br/>" + "<table>"
     website_info_html = (
         website_info_html
         + "<tr>"
@@ -98,7 +98,7 @@ def create_tag_table_html(tag_name, tag_info_data):
             + "</tr>"
         )
 
-    website_info_html = website_info_html + "</table>"
+    website_info_html = website_info_html + "</table>" + "<br/>" + "<a href='#目录'>🔙返回目录</a>" + "<br/>"
 
     return website_info_html
 
