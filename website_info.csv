@@ -28,7 +28,7 @@ Url,Name,Description,Tag
 "https://www.zhihu.com/topic/19776749/top-answers","知乎Top1000高票回答","知乎根话题精华(以前的)","优秀作品;"
 "https://www.pixiv.net/ranking.php?mode=male","Pixiv福利插画!","插画P站最受男性喜欢排行榜资源","优秀作品;"
 "https://convertio.co/zh/gif-mp4/","GIF到MP4转换器","可以将100MB以内的gif图片转换为MP4","在线工具;"
-"https://buyersguide.macrumors.com/","Apple产品更新周期表","避免49年入国军","购物资讯;"
+"https://buyersguide.macrumors.com/","Apple产品更新周期表","避免49年入国军","购物;"
 "https://news.ycombinator.com/","Hacker News","内容品质极佳的英文论坛","信息流;"
 "https://www.v2ex.com/go/meet","V2EX","V站创业组队,万事俱备,就差个程序员了","创业;"
 "https://xclient.info/","Mac应用分享","风评一直不错的macOS应用分享站,借助第三方网盘进行存储,保留了软件的旧版本","资源集市;"
@@ -56,3 +56,4 @@ Url,Name,Description,Tag
 "https://www.mydrivers.com/zhuanti/tianti/gpu/index.html","显卡天梯榜","各路显卡性能排名","评测;显卡;计算机;"
 "https://clipdrop.co/relight","Relight","摄影是光影的艺术,在线工具可以为图片二次打光","设计;摄影;在线工具;"
 "https://bluemaxima.org/flashpoint/","Flash游戏藏品","截止2022年,提供1.31TB的超过十万款款Flash游戏下载","游戏;资源集市;"
+"https://huggingface.co/spaces/stabilityai/stable-diffusion","AI画图","输入英文,生成图片","设计;AI;"
