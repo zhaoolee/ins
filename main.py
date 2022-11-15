@@ -6,39 +6,96 @@ import time
 import pytz
 import requests
 
-website_info_data = pd.read_csv('./website_info.csv')
-website_info_data = website_info_data.reindex(index=website_info_data.index[::-1])
-print(website_info_data)
-for website_info_index, website_info_row in website_info_data.iterrows():
-    print('=start=>>', website_info_index, website_info_row['Url'])
-    try:
-        website_info_row_url_result = requests.get(website_info_row['Url'], timeout=5)
-        total_ms = str(int(website_info_row_url_result.elapsed.total_seconds()*1000))
-        # 响应码为2开头,标注绿色,否则标注红色
-        if website_info_row_url_result.status_code:
-            website_info_row['Name'] = "<span style='font-weight: 600'>" + website_info_row['Name'] + "</span>" + "<span>" + (" 🟢 "+ total_ms + "ms" if str(website_info_row_url_result.status_code).startswith("2") else " 🔴")  + "</span><br/>"
-    # 无法响应，标注红色
-    except Exception as e:
-        print('error==', e)
-        website_info_row['Name'] = "<span style='font-weight: 600'>" + website_info_row['Name'] + " 🔴" +"</span><br/>"
-    finally:
-        website_info_row['Name'] = "<span>" + website_info_row['Name'] + "</span>" + "<a href='" + website_info_row['Url'] + "'>" + (website_info_row['Url'] if len(website_info_row['Url']) < 30 else website_info_row['Url'][0:30] + "..." ) + "</a>"
-        print("finish", website_info_row['Url'], website_info_row['Name'])
-website_info_data = website_info_data.drop(columns=['Url'])
-website_info_html = "<table>"
-website_info_html = website_info_html + "<tr>" + "<td width='400'>" + "<span>(づ｡◕‿‿◕｡)づ</span><br/><span>Name</span>" + "</td>"  + "<td>" + "<span> (●ﾟωﾟ●)</span><br/><span>Description</span>"  + "</td>"  + "<td width='300'>" + "<span> ︿(￣︶￣)︿</span><br/><span>Tag</span>"  + "</td>"  +"</tr>"
-for website_info_index, website_info_row in website_info_data.iterrows():
-    website_info_html = website_info_html + "<tr>" + "<td>" + website_info_row['Name'] + "</td>"  + "<td>" + website_info_row['Description'] + "</td>"  + "<td>" + website_info_row['Tag'] + "</td>"  +"</tr>"
-website_info_html = website_info_html + "</table>"
-website_info_md = website_info_data.to_markdown(index=False)
-print(website_info_md, website_info_html)
-readme_md = ""
-with open(os.path.join(os.getcwd(),"EditREADME.md"),'r') as load_f:
-    readme_md = load_f.read();
-mail_re = r'--insStart----insEnd--'
-reResult = re.findall(mail_re, readme_md)
-in_datetime = datetime.fromtimestamp(int(time.time()),pytz.timezone('Asia/Shanghai')).strftime('%Y-%m-%d %H:%M:%S')
-new_read_me = readme_md.replace(reResult[0], "\n\n" + "## 开源灵感库已收录" + str(len(website_info_data)) + "束灵感INS!" + "(～￣▽￣)～更新时间("+ in_datetime + ")\n\n" + website_info_html + "\n\n")
-print('new_read_me',new_read_me)
-with open(os.path.join(os.getcwd(),"README.md"),'w') as load_f:
-    load_f.write(new_read_me)
+
+def get_all_tag(website_info_data):
+    all_tag = []
+    # 遍历数据
+    for website_info_index, website_info_row in website_info_data.iterrows():
+        tag_list = website_info_row['Tag'].split(";")
+        pure_tag_list = []
+        for tag in tag_list:
+            pure_tag = tag.strip()
+            if pure_tag != "":
+                pure_tag_list.append(pure_tag)
+                if(pure_tag not in all_tag):
+                    all_tag.append(pure_tag)
+        print('pure_tag_list',pure_tag_list)
+        print('tag==>>', website_info_index,website_info_row['Tag'], 'pure_tag_list==>>',pure_tag_list)
+
+    print('all_tag',all_tag)
+    return all_tag
+
+def short_url(url):
+    result = ""
+    url = url.lstrip("http://")
+    url = url.lstrip("https://")
+    url = url.lstrip("www.")
+
+    if len(url) > 30:
+        result = url[0:30] + "..." 
+    else:
+        result = url
+    return result
+
+def replaceTemplate(template, reInfo, data):
+
+    reResult = re.findall(reInfo, template)
+    new_read_me = template.replace(reResult[0], data)
+    return new_read_me
+
+
+def main():
+    # 读取csv文件
+    website_info_data = pd.read_csv('./website_info.csv')
+    # 反转数据,保证最新的数据在最前面
+    website_info_data = website_info_data.reindex(index=website_info_data.index[::-1])
+    print(website_info_data)
+    
+    # 遍历数据
+    for website_info_index, website_info_row in website_info_data.iterrows():
+        print('=start=>>', website_info_index, website_info_row['Url'])
+        # 检测网站可用性,记录请求时间,完成数据拼接
+        try:
+            # 检测网站是否正常
+            website_info_row_url_result = requests.get(website_info_row['Url'], timeout=5)
+            total_ms = str(int(website_info_row_url_result.elapsed.total_seconds()*1000))
+            # 响应码为2开头,标注绿色,否则标注红色
+            if website_info_row_url_result.status_code:
+                website_info_row['Name'] = "<span style='font-weight: 600'>" + website_info_row['Name'] + "</span>" + "<span>" + (" 🟢 "+ total_ms + "ms" if str(website_info_row_url_result.status_code).startswith("2") else " 🔴")  + "</span><br/>"
+        # 无法响应，标注红色
+        except Exception as e:
+            print('error==', e)
+            website_info_row['Name'] = "<span style='font-weight: 600'>" + website_info_row['Name'] + " 🔴" +"</span><br/>"
+        finally:
+            website_info_row['Name'] = "<span>" + website_info_row['Name'] + "</span>" + "<a href='" + website_info_row['Url'] + "'>" + (short_url(website_info_row['Url'])) + "</a>"
+            print("finish", website_info_row['Url'], website_info_row['Name'])
+    # 删除多余的列
+    website_info_data = website_info_data.drop(columns=['Url'])
+    # 完成table数据拼接
+    website_info_html = "<table>"
+    website_info_html = website_info_html + "<tr>" + "<td width='400'>" + "<span>(づ｡◕‿‿◕｡)づ</span><br/><span>Name</span>" + "</td>"  + "<td>" + "<span> (●ﾟωﾟ●)</span><br/><span>Description</span>"  + "</td>"  + "<td width='300'>" + "<span> ︿(￣︶￣)︿</span><br/><span>Tag</span>"  + "</td>"  +"</tr>"
+    for website_info_index, website_info_row in website_info_data.iterrows():
+        website_info_html = website_info_html + "<tr>" + "<td>" + website_info_row['Name'] + "</td>"  + "<td>" + website_info_row['Description'] + "</td>"  + "<td>" + website_info_row['Tag'] + "</td>"  +"</tr>"
+    website_info_html = website_info_html + "</table>"
+    # 根据EditREADME.md模板,替换占位符, 生成最终数据
+    readme_md = ""
+    with open(os.path.join(os.getcwd(),"EditREADME.md"),'r') as load_f:
+        readme_md = load_f.read();
+    mail_re = r'--insStart----insEnd--'
+    in_datetime = datetime.fromtimestamp(int(time.time()),pytz.timezone('Asia/Shanghai')).strftime('%Y-%m-%d %H:%M:%S')    
+    all_info_content = "\n\n" + "## 开源灵感库已收录" + str(len(website_info_data)) + "束灵感INS!" + "(～￣▽￣)～更新时间("+ in_datetime + ")\n\n" + website_info_html + "\n\n"
+    new_read_me = replaceTemplate(readme_md, mail_re, all_info_content)
+    print('new_read_me',new_read_me)
+
+    # tag_re = r'--tagStart----tagEnd--'
+    # all_tag_content_list = get_all_tag(website_info_data)
+    # all_tag_content = ""
+    # for tag_content in all_tag_content_list:
+    #     all_tag_content = all_tag_content + tag_content + ", "
+    # new_read_me = replaceTemplate(new_read_me, tag_re, all_tag_content)
+    # 将生成的数据写入README.md
+    with open(os.path.join(os.getcwd(),"README.md"),'w') as load_f:
+        load_f.write(new_read_me)
+
+
+main()
