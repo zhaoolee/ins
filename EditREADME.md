@@ -1,5 +1,11 @@
 # INS 🍭 互联网从业者的灵感数据库
 
+## 目录
+
+(点击可直达)
+
+--tagIndexInfoStart----tagIndexInfoEnd--
+
 
 ![INS灵感](https://raw.githubusercontent.com/zhaoolee/ins/master/media/ins.png)
 
@@ -55,11 +61,7 @@ git clone --depth=1 https://github.com/zhaoolee/ins
 如果某些网站无法访问, 可以参考[一款快捷签到领魔法上网天数的小工具](https://www.v2fy.com/p/109-glados-2021-06-09/)
 
 
-## 目录
 
-(点击可直达)
-
---tagIndexInfoStart----tagIndexInfoEnd--
 
 --insStart----insEnd--
 
