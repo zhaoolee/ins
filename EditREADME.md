@@ -6,6 +6,7 @@
 
 --tagIndexInfoStart----tagIndexInfoEnd--
 
+[切换宽屏模式](https://zhaoolee.com/ins/#目录)
 
 ![INS灵感](https://raw.githubusercontent.com/zhaoolee/ins/master/media/ins.png)
 
