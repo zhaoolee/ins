@@ -259,5 +259,4 @@ def main():
     with open(os.path.join(os.getcwd(), "README.md"), "w") as load_f:
         load_f.write(new_read_me)
 
-
 main()
