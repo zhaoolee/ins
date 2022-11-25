@@ -107,3 +107,5 @@ Url,Name,Description,Tag
 "https://movie.douban.com/top250","豆瓣电影Top250","豆瓣电影Top25,二级页面有很多优质影评,可用于学习创作影评","信息流;"
 "https://xmsoushu.com/","熊猫搜书","一个聚合类的电子书搜索网站,在搜索结果页会对目标网站是否有套路或广告进行标识","电子书;"
 "https://twitter.com/Gavmn","Gavin","一个热衷研究重制各种App图标设计及实现的设计师,在实践中塑造出独属自己的技术和审美","设计;"
+"https://csdiy.wiki/","CS自学指南","网罗国内外大学优质课程的计算机科学自学指南","课程;"
+"https://course.rs/about-book.html","Rust语言圣经(Rust Course)","优质的中文Rust教程","课程;"
