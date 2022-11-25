@@ -103,3 +103,5 @@ Url,Name,Description,Tag
 "https://www.discoverdev.io/","DiscoverDev","网站每天列出5到10篇当天值得阅读的软件开发相关文章,支持邮件订阅","极客;"
 "https://github.com/1c7/crash-course-computer-science-chinese","计算机科学速成课","在Github建立协作小组从Youtube汉化搬运优秀课程到B站的工程","极客;"
 "https://github.com/XIU2/TrackersListCollection","BT种子服务器Tracker列表","做BT种子需要优秀稳定的Tracker这个开源项目提供了大量的Tracker","极客;"
+"https://csdiy.wiki/","CS自学指南","网罗国内外大学优质课程的计算机科学自学指南","课程;"
+"https://course.rs/about-book.html","Rust语言圣经(Rust Course)","优质的中文Rust教程","课程;"
