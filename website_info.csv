@@ -111,3 +111,4 @@ Url,Name,Description,Tag
 "https://course.rs/about-book.html","Rust语言圣经(Rust Course)","优质的中文Rust教程","课程;"
 "https://www.runoob.com/","菜鸟教程","中文互联网最干净实用的图文教程网站","课程;"
 "https://github.com/dylanaraps/pure-bash-bible","bash常用操作命令指南","收集各式各样bash操作技巧的仓库,运维老哥防加班必备","极客;"
+"https://hellowebbooks.com/learn-command-line/","以手绘形式学习终端命令行","内容包含一些简单的文件增删改查的操作,适合初学者,注册登陆即可免费下载或在线查看PDF,另外也售卖Kindle电子书,内容相同与PDF版基本相同,但阅读体验更好,需要另外付费","极客;课程;"
