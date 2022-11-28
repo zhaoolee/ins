@@ -124,3 +124,4 @@ Url,Name,Description,Tag
 "https://github.com/mdibaiee/awesome-lite-websites","网站轻量版入口合集","很多网站像App一样变得越来越臃肿,这个开源项目用来收集网站的轻量版入口,比如facebook的轻量版入口是mbasic.facebook.com","信息流;"
 "https://dev.tube/","DevTube/","YouTube是世界上第二大搜索引擎,仅次于Google,网站收集Youtube软件开发相关视频","极客;课程;"
 "https://crashcourse.club/","Crash Course中文字幕组","Crash Course 是一个Youtube教育频道,是YouTube一亿美元原创频道计划所创造的频道之一。一群爱好者将其优秀内容翻译为中文并搬运到B站,并在网站提供了视频索引。","极客;课程;"
+"https://squoosh.app/","Squoosh","Google压缩图片工具,支持离线压缩,可以精确调整图片压缩率与图片尺寸,并且可以实时对压缩图与原图进行比较","在线工具;"
