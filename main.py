@@ -136,6 +136,7 @@ def create_tag_table_html(tag_name, tag_info_data):
 
 
 def main():
+    print("当前服务器时间", datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
     # 读取csv文件
     website_info_data = pd.read_csv("./website_info.csv")
     # 反转数据,保证最新的数据在最前面
