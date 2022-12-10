@@ -61,7 +61,7 @@ git clone --depth=1 https://github.com/zhaoolee/ins
 
 ## 欢迎贡献╰(￣▽￣)╭
 
-贡献方法: Fork本项目, 在项目根目录的 website_info.csv 添加数据, 提交Pr即可!
+贡献方法: Fork本项目, 在项目根目录的 website_info.csv **末尾**添加数据, 提交Pr即可!
 
 ## 联系作者 (＾－＾)V
 

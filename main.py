@@ -44,10 +44,14 @@ def get_all_tag(website_info_data):
 
 def short_url(url):
     result = ""
-    url = url.lstrip("http://")
-    url = url.lstrip("https://")
-    url = url.lstrip("www.")
-    url = url.rstrip("/")
+    if(url.startswith("http://")):
+        url = url[7:]
+    if(url.startswith("https://")):
+        url = url[8:]
+    if(url.startswith("www.")):
+        url = url[4:]
+    if(url.endswith("/")):
+        url = url[:-1]
 
     if len(url) > 30:
         result = url[0:30] + "..."
