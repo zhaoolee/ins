@@ -24,7 +24,7 @@ def get_certificate_expiration_date(host):
     result = ''
     if(cert):
         cert_info = x509.load_der_x509_certificate(cert)
-        expiration_date = cert_info.not_valid_after 
+        expiration_date = cert_info.not_valid_after
         cert_date = datetime.datetime.strptime(str(expiration_date), '%Y-%m-%d %H:%M:%S')
         current_date = datetime.datetime.now()
         remaining_days = (cert_date-current_date).days
@@ -159,7 +159,7 @@ def main():
                     expiration_date = expiration_date_result
             except Exception as e:
                 expiration_date = ''
-            print("!!!expiration_date", expiration_date)
+            print("!!expiration_date", expiration_date)
             total_ms = str(
                 int(website_info_row_url_result.elapsed.total_seconds() * 1000)
             )
