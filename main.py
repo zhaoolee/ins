@@ -6,9 +6,9 @@ import time
 import pytz
 import requests
 import ssl
-from cryptography import x509
 import urllib.parse
-
+import OpenSSL
+from dateutil import parser
 
 def get_host_info(url):
     parsed_url = urllib.parse.urlparse(url)
@@ -16,23 +16,24 @@ def get_host_info(url):
     return host
 
 def get_certificate_expiration_date(host):
-    print("get_certificate_expiration_date==>", host)
-    # 获取证书
-    certificate = ssl.get_server_certificate((host, 443))
-    # 从证书中解析出到期日期
-    cert = ssl.PEM_cert_to_DER_cert(certificate)
     result = ''
+    hostname = host
+    port = 443
+    cert = ssl.get_server_certificate((hostname, port)).encode()
     if(cert):
-        cert_info = x509.load_der_x509_certificate(cert)
-        expiration_date = cert_info.not_valid_after
-        cert_date = datetime.datetime.strptime(str(expiration_date), '%Y-%m-%d %H:%M:%S')
-        current_date = datetime.datetime.now()
-        remaining_days = (cert_date-current_date).days
-        yymmdd_expiration_date = str(expiration_date)[0:10]
-        result = str(yymmdd_expiration_date)+"(剩"+str(remaining_days)+ "天到期)"
+        cert_obj = OpenSSL.crypto.load_certificate(OpenSSL.crypto.FILETYPE_PEM, cert)
+        cert_expire_time = parser.parse(cert_obj.get_notAfter().decode("UTF-8")).strftime('%Y-%m-%d %H:%M:%S')
+        if(cert_obj.has_expired()):
+            result = ''
+        else:
+            current_date = datetime.datetime.now()
+            remaining_days = (datetime.datetime.strptime(cert_expire_time, "%Y-%m-%d %H:%M:%S") - current_date).days
+            yymmdd_expiration_date = str(cert_expire_time)[0:10]
+            result = str(yymmdd_expiration_date)+"(剩"+str(remaining_days)+ "天到期)"
     else:
         result = ''
     return result
+
 
 
 def get_all_tag(website_info_data):
