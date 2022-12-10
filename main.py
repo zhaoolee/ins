@@ -1,10 +1,38 @@
 import pandas as pd
 import os
 import re
-from datetime import datetime
+import datetime
 import time
 import pytz
 import requests
+import ssl
+from cryptography import x509
+import urllib.parse
+
+
+def get_host_info(url):
+    parsed_url = urllib.parse.urlparse(url)
+    host = parsed_url.netloc
+    return host
+
+def get_certificate_expiration_date(host):
+    print("get_certificate_expiration_date==>", host)
+    # 获取证书
+    certificate = ssl.get_server_certificate((host, 443))
+    # 从证书中解析出到期日期
+    cert = ssl.PEM_cert_to_DER_cert(certificate)
+    result = ''
+    if(cert):
+        cert_info = x509.load_der_x509_certificate(cert)
+        expiration_date = cert_info.not_valid_after 
+        cert_date = datetime.datetime.strptime(str(expiration_date), '%Y-%m-%d %H:%M:%S')
+        current_date = datetime.datetime.now()
+        remaining_days = (cert_date-current_date).days
+        yymmdd_expiration_date = str(expiration_date)[0:10]
+        result = str(yymmdd_expiration_date)+"(剩"+str(remaining_days)+ "天到期)"
+    else:
+        result = ''
+    return result
 
 
 def get_all_tag(website_info_data):
@@ -103,7 +131,6 @@ def create_tag_table_html(tag_name, tag_info_data):
         )
 
     website_info_html = website_info_html + "</table>" + "\n" + "<a href='#目录'>🔙目录</a>" + "\n"
-
     return website_info_html
 
 
@@ -123,6 +150,16 @@ def main():
             website_info_row_url_result = requests.get(
                 website_info_row["Url"], timeout=5, headers=headers
             )
+            
+            expiration_date=''
+            try:
+                tmp_host = get_host_info(website_info_row["Url"])
+                expiration_date_result = get_certificate_expiration_date(tmp_host)
+                if(len(expiration_date_result) > 0):
+                    expiration_date = expiration_date_result
+            except Exception as e:
+                expiration_date = ''
+            print("!!!expiration_date", expiration_date)
             total_ms = str(
                 int(website_info_row_url_result.elapsed.total_seconds() * 1000)
             )
@@ -139,6 +176,7 @@ def main():
                         else " 🔴"
                     )
                     + "</span><br/>"
+
                 )
         # 无法响应，标注红色
         except Exception as e:
@@ -159,6 +197,10 @@ def main():
                 + "'>"
                 + (short_url(website_info_row["Url"]))
                 + "</a>"
+                + (
+                    "<br/><span>SSL证书到期时间:" + expiration_date + "</span>"
+                    if (expiration_date and ("🟢" in website_info_row["Name"])) else "" 
+                )
             )
             print("finish", website_info_row["Url"], website_info_row["Name"])
     # 完成table数据拼接
@@ -198,7 +240,7 @@ def main():
     with open(os.path.join(os.getcwd(), "EditREADME.md"), "r") as load_f:
         readme_md = load_f.read()
     mail_re = r"--insStart----insEnd--"
-    in_datetime = datetime.fromtimestamp(
+    in_datetime = datetime.datetime.fromtimestamp(
         int(time.time()), pytz.timezone("Asia/Shanghai")
     ).strftime("%Y-%m-%d %H:%M:%S")
     all_info_content = (

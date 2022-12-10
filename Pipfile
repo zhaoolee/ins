@@ -12,6 +12,7 @@ tabulate = "*"
 pytz = "*"
 requests = "*"
 numpy = "*"
+cryptography = "*"
 
 [dev-packages]
 
