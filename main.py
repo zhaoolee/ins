@@ -118,9 +118,10 @@ def main():
         print("=start=>>", website_info_index, website_info_row["Url"])
         # 检测网站可用性,记录请求时间,完成数据拼接
         try:
+            headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
             # 检测网站是否正常
             website_info_row_url_result = requests.get(
-                website_info_row["Url"], timeout=5
+                website_info_row["Url"], timeout=5, headers=headers
             )
             total_ms = str(
                 int(website_info_row_url_result.elapsed.total_seconds() * 1000)
@@ -134,7 +135,7 @@ def main():
                     + "<span>"
                     + (
                         " 🟢 " + total_ms + "ms"
-                        if str(website_info_row_url_result.status_code).startswith("2")
+                        if (str(website_info_row_url_result.status_code).startswith("1") or str(website_info_row_url_result.status_code).startswith("2") or str(website_info_row_url_result.status_code).startswith("3") or str(website_info_row_url_result.status_code).startswith("4"))
                         else " 🔴"
                     )
                     + "</span><br/>"
