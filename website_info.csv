@@ -136,3 +136,4 @@ Url,Name,Description,Tag
 "https://www.cip.cc/","命令行查询ip归属","在命令行输入curl cip.cc即可获取当前计算机的对外IP","在线工具;"
 "https://github.com/AUTOMATIC1111/stable-diffusion-webui","Stable Diffusion web UI","支持离线部署的开源网页程序，可以根据文字，或图像，合成AI图片","AI;"
 "https://killedbymicrosoft.info/","微软墓地","收集被微软关停的产品","在线工具;信息流;"
+"http://www.sdrawmark.com/","画迹绘图","在线画画，回放绘画流程","在线工具;画画;"
