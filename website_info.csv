@@ -138,4 +138,5 @@ Url,Name,Description,Tag
 "https://killedbymicrosoft.info/","微软墓地","收集被微软关停的产品","在线工具;信息流;"
 "https://civitai.com/","Civitai","Stable Diffusion模型站,可以下载Stable Diffusion各种模型","信息流;AI;"
 "https://huggingface.co/","Hugging Face","集合各种AI项目的社区,类似Github的AI细分版","AI;"
-"https://wallpapers.microsoft.design/","微软壁纸设计站","展示微软各种概念壁纸","设计;"
+"https://wallpapers.microsoft.design/","微软壁纸设计站","展示微软各种概念壁纸","设计;壁纸;"
+"https://jellyfin.org/","jellyfin","一个开源的媒体管理软件,可以管理硬盘中的音乐,电影,连续剧,并生成照片墙","极客;"
