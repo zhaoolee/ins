@@ -11,7 +11,7 @@ jobs:
       strategy:
         matrix:
           # in this example, there is a newer version already installed, 3.7.7, so the older version will be downloaded
-          operating-system: ['ubuntu-20.04']
+          operating-system: ['ubuntu-22.04']
       steps:
       - uses: actions/checkout@v3 # Checking out the repo
       - name: Run with setup-python 3.9
