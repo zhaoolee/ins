@@ -142,3 +142,5 @@ Url,Name,Description,Tag
 "https://jellyfin.org/","jellyfin","一个开源的媒体管理软件,可以管理硬盘中的音乐,电影,连续剧,并生成照片墙","极客;"
 "https://www.speedrun.com/","SpeedRun","游戏速通网站", "游戏;信息流;在线工具;"
 "https://www.applegamingwiki.com/","AppleGamingWiki","收集macOS能玩的游戏,以及兼容情况","游戏;信息流;"
+
+"https://turaai.net/","Tura","开源、本地优先的 AI 编程 Agent，提供 CLI、TUI 和桌面端，可读取与修改代码仓库、运行命令并验证结果，支持多种云端及本地模型","AI;极客;"
