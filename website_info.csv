@@ -142,3 +142,4 @@ Url,Name,Description,Tag
 "https://jellyfin.org/","jellyfin","一个开源的媒体管理软件,可以管理硬盘中的音乐,电影,连续剧,并生成照片墙","极客;"
 "https://www.speedrun.com/","SpeedRun","游戏速通网站", "游戏;信息流;在线工具;"
 "https://www.applegamingwiki.com/","AppleGamingWiki","收集macOS能玩的游戏,以及兼容情况","游戏;信息流;"
+"https://doc2x.noedgeai.com/","Doc2X","PDF、扫描件和图片转为可编辑 Word、Markdown、LaTeX，包含公式和表格；云端处理，有试用及部分免费工具，其余会员/积分，API 单独计费。","在线工具;AI;"
